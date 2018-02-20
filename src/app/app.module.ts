@@ -12,7 +12,8 @@ import { SharedComponent } from './colaboradores/shared/shared.component';
 import { ProjetosListComponent } from './projetos/projetos-list/projetos-list.component';
 import { ProjetoComponent } from './projetos/projeto/projeto.component';
 import { ColaboradorComponent } from './colaboradores/colaborador/colaborador.component';
-
+import { CustomMaterialModule } from './custom-material.module';
+import { CoreComponent } from './core/core.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import { ColaboradorComponent } from './colaboradores/colaborador/colaborador.co
     SharedComponent,
     ProjetosListComponent,
     ProjetoComponent,
-    ColaboradorComponent
+    ColaboradorComponent,
+    CoreComponent
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
