@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
@@ -16,6 +17,8 @@ import { CustomMaterialModule } from './custom-material.module';
 import { CoreComponent } from './core/core.component';
 import { ColaboradorFormComponent } from './colaboradores/colaborador-form/colaborador-form.component';
 import { ProjetoFormComponent } from './projetos/projeto-form/projeto-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ColaboradorService } from './colaboradores/shared/colaborador.service';
 
 @NgModule({
   declarations: [
@@ -35,9 +38,11 @@ import { ProjetoFormComponent } from './projetos/projeto-form/projeto-form.compo
     BrowserModule,
     FlexLayoutModule,
     AppRoutingModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ColaboradorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

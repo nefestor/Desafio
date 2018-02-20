@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 
@@ -9,4 +10,6 @@ import * as _ from 'lodash';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private httpClient: HttpClient){}
 }
