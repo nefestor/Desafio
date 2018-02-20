@@ -14,6 +14,8 @@ import { ProjetoComponent } from './projetos/projeto/projeto.component';
 import { ColaboradorComponent } from './colaboradores/colaborador/colaborador.component';
 import { CustomMaterialModule } from './custom-material.module';
 import { CoreComponent } from './core/core.component';
+import { ColaboradorFormComponent } from './colaboradores/colaborador-form/colaborador-form.component';
+import { ProjetoFormComponent } from './projetos/projeto-form/projeto-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CoreComponent } from './core/core.component';
     ProjetosListComponent,
     ProjetoComponent,
     ColaboradorComponent,
-    CoreComponent
+    CoreComponent,
+    ColaboradorFormComponent,
+    ProjetoFormComponent
   ],
   imports: [
     BrowserModule,
