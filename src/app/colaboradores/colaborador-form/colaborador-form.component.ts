@@ -17,8 +17,8 @@ export class ColaboradorFormComponent implements OnInit {
   }
 
   onSubmit(form) {
-    this.ColaboradorService.getColaborador(form.value.nome);
     console.log(form);
+    this.ColaboradorService.postColaborador(form);
   }
 
 }

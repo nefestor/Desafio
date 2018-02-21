@@ -1,35 +1,35 @@
-<form #colForm="ngForm" (ngSubmit)="onSubmit(colForm)"  fxLayout="column" fxLayoutAlign="space-evenly stretch">
+<form #colForm="ngForm" name="form" (ngSubmit)="onSubmit(colForm)"  fxLayout="column" fxLayoutAlign="space-evenly stretch">
   <p>
     colaboradores-form works!
   </p>
   <mat-form-field>
-    <input matInput placeholder="Nome Completo" ngModel name="nome"/>
+    <input matInput required placeholder="Nome Completo" ngModel name="name"/>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Email" ngModel name="email"/>
+    <input matInput required placeholder="Email" ngModel name="email"/>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Telefone" ngModel name="telefone"/>
+    <input matInput placeholder="Telefone" ngModel name="phone"/>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Data de Nascimento" ngModel name="nascimento"/>
+    <input matInput placeholder="Data de Nascimento" ngModel name="birth"/>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Carga Horária" ngModel name="carga"/>
+    <input matInput placeholder="Carga Horária" ngModel name="workload"/>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Escolaridade" ngModel name="escolaridade">
-      <mat-option value="option">Fundamental</mat-option>
-      <mat-option value="option">Médio</mat-option>
-      <mat-option value="option">Superior</mat-option>
-      <mat-option value="option">Especialização</mat-option>
-      <mat-option value="option">Mestrado</mat-option>
-      <mat-option value="option">Doutorado</mat-option>
+    <mat-select placeholder="Escolaridade" ngModel name="scholarity">
+      <mat-option value="Fundamental">Fundamental</mat-option>
+      <mat-option value="Medio">Médio</mat-option>
+      <mat-option value="Superior">Superior</mat-option>
+      <mat-option value="Especializacao">Especialização</mat-option>
+      <mat-option value="Mestrado">Mestrado</mat-option>
+      <mat-option value="Doutado">Doutorado</mat-option>
     </mat-select>
   </mat-form-field>
   <button type="submit" mat-button color="primary">Enviar</button>
