@@ -17,15 +17,19 @@ export class ColaboradorService {
   } //Se nome estiver com o campo vazio, está retornando o primeiro usuário.
 
   postColaborador(form) {
-    console.log(form.value);
-    this.http
-   .post(`http://localhost:3000/v1/users`, form.value)
-   .subscribe(data => {
-     console.log(data)
-    },
-    err => {
-      console.log("Erro ocorrido.");
+    if(form.status == "VALID") {
+      console.log(form.value);
+      this.http
+      .post(`http://localhost:3000/v1/users`, form.value)
+      .subscribe(data => {
+      console.log(data)
+      },
+      err => {
+        console.log("Erro ocorrido.");
+      }
+      );
+    } else {
+      alert("Formulario Invalido. Preencha os campos corretamente");
     }
-    );
   }
 }
