@@ -11,6 +11,9 @@ import { ColaboradorService } from '../shared/colaborador.service';
 export class ColaboradorFormComponent implements OnInit {
 
 
+  public Phonemask = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public Datemask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
+  public Hourmask = [/\d/, /\d/,':',/\d/, /\d/]
   constructor(private ColaboradorService: ColaboradorService) { }
 
   ngOnInit() {
@@ -20,5 +23,4 @@ export class ColaboradorFormComponent implements OnInit {
     console.log(form);
     this.ColaboradorService.postColaborador(form);
   }
-
 }

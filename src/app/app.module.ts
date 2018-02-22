@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ColaboradorService } from './colaboradores/shared/colaborador.service';
 import { EmailInputDirective } from './colaboradores/shared/email-input.directive';
 import { LetrasInputDirective } from './colaboradores/shared/letras-input.directive';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LetrasInputDirective } from './colaboradores/shared/letras-input.direct
     AppRoutingModule,
     CustomMaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TextMaskModule
   ],
   providers: [ColaboradorService],
   bootstrap: [AppComponent]

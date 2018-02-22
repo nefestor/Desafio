@@ -11,11 +11,11 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Telefone" ngModel name="phone" NumerosInput="true"/>
+    <input type="tel" [textMask]="{mask: Phonemask}" matInput placeholder="Celular" ngModel name="phone"/>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Data de Nascimento" ngModel name="birth" NumerosInput="true"/>
+    <input matInput [textMask]="{mask: Datemask}" placeholder="Data de Nascimento" ngModel name="birth"/>
   </mat-form-field>
 
   <mat-form-field>
