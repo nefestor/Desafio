@@ -20,6 +20,8 @@ import { ColaboradorFormComponent } from './colaboradores/colaborador-form/colab
 import { ProjetoFormComponent } from './projetos/projeto-form/projeto-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ColaboradorService } from './colaboradores/shared/colaborador.service';
+import { EmailInputDirective } from './colaboradores/shared/email-input.directive';
+import { LetrasInputDirective } from './colaboradores/shared/letras-input.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ColaboradorService } from './colaboradores/shared/colaborador.service';
     CoreComponent,
     ColaboradorFormComponent,
     ProjetoFormComponent,
-    NumerosInputDirective
+    NumerosInputDirective,
+    EmailInputDirective,
+    LetrasInputDirective
   ],
   imports: [
     BrowserModule,
