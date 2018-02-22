@@ -14,13 +14,13 @@ export class NumerosInputDirective {
     if (this.NumerosInput) {
       if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
         // Allow: Ctrl+A
-        (e.keyCode === 65 && (e.ctrlKey || e.metaKey)) ||
+        ((e.keyCode === 65 || e.keyCode === 97) && (e.ctrlKey || e.metaKey)) ||
         // Allow: Ctrl+C
-        (e.keyCode === 67 && (e.ctrlKey || e.metaKey)) ||
+        ((e.keyCode === 67 || e.keyCode === 99) && (e.ctrlKey || e.metaKey)) ||
         // Allow: Ctrl+V
-        (e.keyCode === 86 && (e.ctrlKey || e.metaKey)) ||
+        ((e.keyCode === 86 || e.keyCode === 118) && (e.ctrlKey || e.metaKey)) ||
         // Allow: Ctrl+X
-        (e.keyCode === 88 && (e.ctrlKey || e.metaKey)) ||
+        ((e.keyCode === 88 || e.keyCode === 120) && (e.ctrlKey || e.metaKey)) ||
         // Allow: home, end, left, right
         (e.keyCode >= 35 && e.keyCode <= 39)) {
         // let it happen, don't do anything
