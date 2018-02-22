@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
 
+import { NumerosInputDirective } from './colaboradores/shared/numeros-input.directive';
 import { AppComponent } from './app.component';
 import { ColaboradoresComponent } from './colaboradores/colaboradores.component';
 import { ProjetosComponent } from './projetos/projetos.component';
@@ -32,7 +33,8 @@ import { ColaboradorService } from './colaboradores/shared/colaborador.service';
     ColaboradorComponent,
     CoreComponent,
     ColaboradorFormComponent,
-    ProjetoFormComponent
+    ProjetoFormComponent,
+    NumerosInputDirective
   ],
   imports: [
     BrowserModule,
