@@ -1,29 +1,35 @@
-<div fxLayout="column" fxLayoutAlign="space-evenly stretch">
+<form #projForm="ngForm" name="formProj" fxLayout="column" fxLayoutAlign="space-evenly stretch">
   <p>
     projetos-form works!
   </p>
-  <mat-form-field>
-    <input matInput placeholder="Nome Projeto" />
+  <mat-form-field hintLabel="Min 5 caracteres">
+    <mat-label for="name">Nome Completo</mat-label>
+    <input matInput #input placeholder="Novo Projeto ForLogic" name="name" ngModel minlength="5" LetrasInput="true"/>
+    <mat-hint align="end">{{input.value?.length || 0}}</mat-hint>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Data de Início" />
+    <mat-label for="start">Data de Início</mat-label>
+    <input matInput [textMask]="{mask: dateMask}" ngModel placeholder="11/11/1111" name="start"/>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Data de Conclusão" />
+    <mat-label for="finish">Data de Conclusão</mat-label>
+    <input matInput [textMask]="{mask: dateMask}" ngModel placeholder="99/99/9999" name="finish"/>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Colaborador Responsável"></mat-select>
+    <mat-label for="boss">Líder do Projeto</mat-label>
+    <mat-select required placeholder="Lider" ngModel name="boss"></mat-select>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Descrição" />
+    <mat-label for="description">Descrição do Projeto</mat-label>
+    <input matInput ngModel placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit." name="description"/>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Equipe"></mat-select>
+    <mat-select ngModel placeholder="Equipe"></mat-select>
   </mat-form-field>
   <button type="submit" mat-button color="primary">Enviar</button>
-</div>
+</form>
