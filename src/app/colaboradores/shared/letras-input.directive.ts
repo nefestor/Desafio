@@ -27,8 +27,8 @@ export class LetrasInputDirective {
     //se for letra retorna maiúscula retorna, se for letra minúscula retorna
     if ((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode >= 97 && e.keyCode <= 122)) {
       return;
-    } //se for tab ou backspace retorna
-    else if (e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 32) {
+    } //se for tab ou backspace ou seta baixo ou seta cima ou enter retorna
+    else if (e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 32  || e.keyCode === 40 ||e.keyCode === 38 || e.keyCode === 13) {
       return;
     } else { //se não for nada acima previne o retorno
       e.preventDefault();

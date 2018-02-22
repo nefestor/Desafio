@@ -27,8 +27,8 @@ export class EmailInputDirective {
       //se for @ retorna, se for letra retorna maiúscula retorna, se for letra minúscula retorna
       if ((e.shiftKey && e.keyCode === 50) || (e.keyCode > 64 && e.keyCode < 91) || (e.keyCode >= 97 && e.keyCode <= 122)) {
         return;
-      } //se for tab ou '-' ou '.' ou backspace retorna
-      else if (e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 173 || e.keyCode === 190) {
+      } //se for tab ou '-' ou '.' ou backspace ou seta baixo ou seta cima ou enter
+      else if (e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 173 || e.keyCode === 190 || e.keyCode === 40 ||e.keyCode === 38 || e.keyCode === 13) {
         return;
       } else { //se não for nada acima previne o retorno
         e.preventDefault();
