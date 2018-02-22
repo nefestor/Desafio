@@ -21,6 +21,13 @@ export class ColaboradorFormComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form);
-    this.ColaboradorService.postColaborador(form);
+    this.ColaboradorService.verificaEmail(form.value.email, (data) => {
+      if (data.length == 0) {
+        this.ColaboradorService.postColaborador(form);
+      } else {
+        alert("email já existe, cadastre outro");
+        console.log("ja existe email");
+      }
+    })
   }
 }
