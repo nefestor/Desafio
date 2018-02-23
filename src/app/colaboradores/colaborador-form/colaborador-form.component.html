@@ -4,8 +4,8 @@
   </p>
   <mat-form-field hintLabel="Min 5 caracteres">
     <mat-label  for="name">Nome Completo</mat-label>
-    <input matInput #input required placeholder="Usuario Novo" ngModel name="name" LetrasInput="true" minlength="5"/>
-    <mat-hint align="end">{{input.value?.length || 0}}</mat-hint>
+    <input matInput #put required placeholder="Usuario Novo" ngModel name="name" LetrasInput="true" minlength="5"/>
+    <mat-hint align="end">{{put.value?.length || 0}}</mat-hint>
   </mat-form-field>
 
   <mat-form-field>

@@ -25,11 +25,12 @@ export class ColaboradorService {
         }
       )
   }
-  getColaboradores() {
+  getColaboradores(callback) {
     this.http.get(`http://localhost:3000/v1/users`)
       .subscribe(
         (data: any[]) => {
           console.log(data);
+          callback(data);
         }
       )
   }
