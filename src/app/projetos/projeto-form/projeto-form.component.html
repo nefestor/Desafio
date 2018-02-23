@@ -31,7 +31,9 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select ngModel placeholder="Equipe" name="team"></mat-select>
+    <mat-select ngModel placeholder="Equipe" name="team">
+      <mat-option *ngFor="let lider of lista" required [value]="lider.email">{{ lider.nome }}</mat-option>
+    </mat-select>
   </mat-form-field>
   <button type="submit" mat-button color="primary">Enviar</button>
 </form>
