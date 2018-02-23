@@ -21,7 +21,7 @@
   <mat-form-field>
     <mat-label for="boss">Líder do Projeto</mat-label>
     <mat-select placeholder="Lider" ngModel name="boss">
-    <mat-option *ngFor="let lider of lista" required [value]="lider">{{ lider }}</mat-option>
+    <mat-option *ngFor="let lider of lista" required [value]="lider.email">{{ lider.nome }}</mat-option>
     </mat-select>
   </mat-form-field>
   

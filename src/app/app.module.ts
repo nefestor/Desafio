@@ -23,6 +23,7 @@ import { ColaboradorService } from './colaboradores/shared/colaborador.service';
 import { EmailInputDirective } from './colaboradores/shared/email-input.directive';
 import { LetrasInputDirective } from './colaboradores/shared/letras-input.directive';
 import { TextMaskModule } from 'angular2-text-mask';
+import { ProjetoService } from './projetos/shared/projeto.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import { TextMaskModule } from 'angular2-text-mask';
     HttpClientModule,
     TextMaskModule
   ],
-  providers: [ColaboradorService],
+  providers: [ColaboradorService,
+              ProjetoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
