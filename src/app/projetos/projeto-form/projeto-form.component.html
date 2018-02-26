@@ -31,9 +31,26 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select ngModel placeholder="Equipe" name="team">
-      <mat-option *ngFor="let lider of lista" required [value]="lider.email">{{ lider.nome }}</mat-option>
-    </mat-select>
+    <mat-label for="team">Membros da Equipe</mat-label>
+    <mat-select placeholder="Lider" ngModel name="team" ng-change="listaEquipe(option)">
+      <mat-option (click)="adicionaMembro(lider.nome)" #option *ngFor="let lider of lista" required>{{ lider.nome }}</mat-option>
+     </mat-select> 
   </mat-form-field>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Membros da Equipe
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let membro of membros">
+        <p>{{membro.nome}}</p>
+      </div>
+    </mat-expansion-panel>
+
+<!--   <div *ngIf="option.value">
+    <div>
+      <span>{{selecionado.nome}} {{ selecionado.email}}</span>
+    </div>
+  </div> -->
   <button type="submit" mat-button color="primary">Enviar</button>
 </form>

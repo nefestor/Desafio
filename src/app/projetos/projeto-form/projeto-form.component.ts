@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetoService } from '../shared/projeto.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-projeto-form',
@@ -14,13 +15,27 @@ export class ProjetoFormComponent implements OnInit {
   
   constructor(private ProjetoService: ProjetoService) { }
 
+  lista: any[] = this.ProjetoService.listaColaboradores();
+  membros: any [] = new Array;
+  panelOpenState: boolean = true;
+
   ngOnInit() {
   }
+  
 
-  lista: any[] = this.ProjetoService.listaColaboradores();
 
   onSubmit(form) {
     console.log(form);
     this.ProjetoService.postProjeto(form);
   }
+
+  adicionaMembro(value: string) {
+    let membro =  {
+      nome: ''
+    }
+    membro.nome = value;
+    this.membros.push(membro);
+    console.log(this.membros);
+  }
+
 }
