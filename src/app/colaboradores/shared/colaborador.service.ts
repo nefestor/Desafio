@@ -7,11 +7,13 @@ export class ColaboradorService {
   
   constructor(private http: HttpClient) { }
 
-  getColaborador(name){
+  getColaborador(name, callback){
+    console.log(name);
     this.http.get(`http://localhost:3000/v1/users?name=${name}`)
     .subscribe(
       (data:any[]) => {
-        console.log(data)
+        callback(data);
+        console.log(data);
       }
     )
   } //Se nome estiver com o campo vazio, está retornando o primeiro usuário.
