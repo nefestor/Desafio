@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColaboradorService } from './shared/colaborador.service';
 
 @Component({
   selector: 'app-colaboradores',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColaboradoresComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ColaboradorService: ColaboradorService) { }
+
+  public listaNome: any[] = [];
 
   ngOnInit() {
   }
-
+  localizar(name) {
+    this.ColaboradorService.getColaborador(name, (data) => {
+       data.forEach(colaborador => {
+         let tst = `<li>${colaborador.name}</li>`;
+         (this.listaNome).push(tst);
+       });
+       console.log(this.listaNome);
+  });
+  }
 }
