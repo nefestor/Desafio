@@ -52,5 +52,5 @@
       <span>{{selecionado.nome}} {{ selecionado.email}}</span>
     </div>
   </div> -->
-  <button type="submit" mat-button color="primary">Enviar</button>
+  <button type="submit" [disabled]="!projForm.valid" mat-raised-button color="primary">Enviar</button>
 </form>
