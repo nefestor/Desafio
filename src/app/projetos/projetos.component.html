@@ -1,4 +1,22 @@
-<p>
-  projetos works!
-</p>
-<app-projeto-form></app-projeto-form>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <p>projetos works!</p>
+  <h2>Projetos</h2>
+  <div>
+    <mat-form-field>
+      <mat-label for="procurar">Localizar Projeto</mat-label>
+      <input matInput #name type="text" placeholder="Nome Projeto">
+    </mat-form-field>
+    <button (click)="localizar(name.value)" mat-raised-button color="basic">Localizar</button>
+  </div>
+  <div>
+    <button mat-raised-button color="basic" routerLink="listar">Listar</button>
+    <button mat-raised-button color="primary" routerLink="novo">Adicionar</button>
+    <button mat-raised-button color="accent" routerLink="alterar">Alterar</button>
+    <button mat-raised-button color="warn" routerLink="excluir">Remover</button>
+  </div>
+  <div>
+    <div *ngFor="let projeto of listaNome">
+      <p>{{projeto.nome}}</p>
+    </div>
+  </div>
+</div>

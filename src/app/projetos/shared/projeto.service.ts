@@ -25,6 +25,8 @@ export class ProjetoService {
       alert("Formulario Invalido. Preencha os campos corretamente");
     }
   }
+  
+  getProjeto(nome) {}
 
   listaColaboradores(): any[] {
     let lista = [];
@@ -38,5 +40,14 @@ export class ProjetoService {
       })
     });
     return lista;
+  }
+
+  getProjetos(callback) {
+    this.http.get(`http://localhost:3000/v1/projects`)
+      .subscribe(
+        (data: any[]) => {
+          callback(data);
+        }
+      )
   }
 }

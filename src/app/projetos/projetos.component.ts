@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProjetoService } from './shared/projeto.service';
 @Component({
   selector: 'app-projetos',
   templateUrl: './projetos.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjetosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ProjetoService: ProjetoService) { }
+
+  public listaNome: any[] = [];
 
   ngOnInit() {
   }
-
+  
+  localizar(name) {
+    this.ProjetoService.getProjeto(name);
+  }
 }

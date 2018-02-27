@@ -14,7 +14,7 @@ export class ColaboradoresComponent implements OnInit {
 
   ngOnInit() {
   }
-  localizar(name) {
+  localizar(name) { //corrigir
     this.ColaboradorService.getColaborador(name, (data) => {
        data.forEach(colaborador => {
          let tst = `<li>${colaborador.name}</li>`;
