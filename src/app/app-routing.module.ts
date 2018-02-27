@@ -3,12 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProjetosComponent } from './projetos/projetos.component';
 import { ColaboradoresComponent } from './colaboradores/colaboradores.component';
+import { ColaboradoresListComponent } from './colaboradores/colaboradores-list/colaboradores-list.component'
 import { CoreComponent } from './core/core.component';
+import { ColaboradorFormComponent } from './colaboradores/colaborador-form/colaborador-form.component';
 
 const routes: Routes = [
   { path: 'home', component: CoreComponent },
   { path: 'projetos', component: ProjetosComponent },
-  { path: 'colaboradores', component: ColaboradoresComponent }
+  { path: 'colaboradores', component: ColaboradoresComponent },
+  { path: 'colaboradores/novo', component: ColaboradorFormComponent },
+  { path: 'colaboradores/listar', component: ColaboradoresListComponent },
+  { path: 'colaboradores/alterar', component: ColaboradorFormComponent },
+  { path: 'colaboradores/excluir', component: ColaboradorFormComponent }
 ];
 
 @NgModule({
