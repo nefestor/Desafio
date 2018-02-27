@@ -1,4 +1,22 @@
-<p>
-  colaboradores works!
-</p>
-<app-colaborador-form></app-colaborador-form>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <p>colaboradores works!</p>
+  <h2>Colaboradores</h2>
+  <div>
+    <mat-form-field>
+      <mat-label for="procurar">Localizar Colaborador</mat-label>
+      <input matInput #name type="text" placeholder="Nome Colaborador">
+    </mat-form-field>
+    <button (click)="localizar(name.value)" mat-raised-button color="basic">Localizar</button>
+  </div>
+  <div>
+    <button mat-raised-button color="basic" routerLink="listar">Listar</button>
+    <button mat-raised-button color="primary" routerLink="novo">Adicionar</button>
+    <button mat-raised-button color="accent" routerLink="excluir">Alterar</button>
+    <button mat-raised-button color="warn" routerLink="excluir">Remover</button>
+  </div>
+  <div>
+    <div *ngFor="let membro of listaNome">
+      <p>{{membro.nome}}</p>
+    </div>
+  </div>
+</div>
