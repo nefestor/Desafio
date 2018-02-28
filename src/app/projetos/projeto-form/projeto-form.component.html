@@ -36,21 +36,16 @@
       <mat-option (click)="adicionaMembro(lider.nome)" #option *ngFor="let lider of lista" required>{{ lider.nome }}</mat-option>
      </mat-select> 
   </mat-form-field>
-  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-        Membros da Equipe
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div *ngFor="let membro of membros">
-      <p>{{membro.nome}}</p>
-    </div>
-  </mat-expansion-panel>
 
-<!--   <div *ngIf="option.value">
-    <div>
-      <span>{{selecionado.nome}} {{ selecionado.email}}</span>
-    </div>
-  </div> -->
+  <mat-form-field>
+    <mat-label for="team">Membros da Equipe</mat-label>
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let membro of membros" [selectable]="selectable" [removable]="removable" (remove)="remove(membro)">
+        {{ membro.name }}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </mat-form-field>
+  
   <button type="submit" [disabled]="!projForm.valid" mat-raised-button color="primary">Enviar</button>
 </form>
