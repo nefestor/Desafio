@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 @Injectable()
 export class ColaboradorService {
   
@@ -45,10 +47,19 @@ export class ColaboradorService {
       },
       err => {
         console.log("Erro ocorrido.");
+      },
+      () => {
+        console.log("teste");
       }
       );
     } else {
       alert("Formulario Invalido. Preencha os campos corretamente");
     }
+  }
+  excluirColaborador(id): Observable<any> {
+    return this.http.delete(`http://localhost:3000/v1/users/${id}`).map((res: Response) => {})
+  }
+  alterarColaborador(form): Observable<any> {
+    return this.http.put(`http://localhost:3000/v1/users/${form.id}`, form).map((res: Response) => {})
   }
 }
