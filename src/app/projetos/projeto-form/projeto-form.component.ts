@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetoService } from '../shared/projeto.service';
 import { FormControl } from '@angular/forms';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material';
 
 @Component({
   selector: 'app-projeto-form',
@@ -19,10 +21,15 @@ export class ProjetoFormComponent implements OnInit {
   membros: any [] = new Array;
   panelOpenState: boolean = true;
 
+  visible: boolean = true;
+  selectable: boolean = true;
+  removable: boolean = true;
+  addOnBlur: boolean = true;
+  separatorKeysCodes = [ENTER, COMMA];
+
+
   ngOnInit() {
   }
-  
-
 
   onSubmit(form) {
     console.log(form);
@@ -31,11 +38,18 @@ export class ProjetoFormComponent implements OnInit {
 
   adicionaMembro(value: string) {
     let membro =  {
-      nome: ''
+      name: ''
     }
-    membro.nome = value;
+    membro.name = value;
     this.membros.push(membro);
     console.log(this.membros);
+  }
+
+  remove(membro: any): void {
+    let index = this.membros.indexOf(membro);
+    if (index >= 0) {
+      this.membros.splice(index, 1);
+    }
   }
 
 }
