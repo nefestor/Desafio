@@ -1,6 +1,5 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-
-button.mat-raised-button {
-    background-color: #2ad8b3;
+* {
+    font-family: Helvetica, sans-serif;
 }
