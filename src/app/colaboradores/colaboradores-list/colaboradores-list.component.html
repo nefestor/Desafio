@@ -17,15 +17,15 @@
               Nome: {{ colaborador.name }}
             </mat-panel-title>
             <mat-panel-description>
-              Informações
+               Cadastro feito {{ atual().to(colaborador.cadastro) }}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <ng-template matExpansionPanelContent>
-            <p>Email: {{ colaborador.email}}</p>
-            <p>Telefone: {{ colaborador.phone}}</p>
-            <p>Data de Nascimento: {{ colaborador.birth}}</p>
-            <p>Carga Horária: {{ colaborador.workload}}</p>
-            <p>Escolaridade: {{ colaborador.scholarity}}</p>
+            <p>Email: {{ colaborador.email }}</p>
+            <p>Telefone: {{ colaborador.phone }}</p>
+            <p>Data de Nascimento: {{ colaborador.birth }}</p>
+            <p>Carga Horária: {{ colaborador.workload }}</p>
+            <p>Escolaridade: {{ colaborador.scholarity }}</p>
             <mat-action-row fxLayout="row" fxLayoutAlign="space-evenly center">
               <button mat-mini-fab routerLink="/colaboradores/alterar">
                 <mat-icon>edit</mat-icon>

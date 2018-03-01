@@ -3,6 +3,7 @@ import { ColaboradorService } from '../shared/colaborador.service';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-colaboradores-list',
@@ -20,6 +21,11 @@ export class ColaboradoresListComponent implements OnInit {
 
   ngOnInit() {
       this.atualizaLista();
+  }
+  ngOnDestroy() {
+    if (this.subscriber) {
+    this.subscriber.unsubscribe();
+    }
   }
 
   atualizaLista() {
@@ -39,7 +45,12 @@ export class ColaboradoresListComponent implements OnInit {
           this.atualizaLista();
         });
   }
+
+  atual() {
+    return moment();
+  }
+
   alterar(id, form) {
-    
+
   }
 }
