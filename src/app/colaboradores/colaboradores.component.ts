@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColaboradorService } from './shared/colaborador.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-colaboradores',
