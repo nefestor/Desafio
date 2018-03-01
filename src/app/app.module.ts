@@ -1,11 +1,12 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
-import { FlexLayoutModule} from '@angular/flex-layout';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NumerosInputDirective } from './colaboradores/shared/numeros-input.directive';
 import { AppComponent } from './app.component';
 import { ColaboradoresComponent } from './colaboradores/colaboradores.component';
@@ -25,6 +26,7 @@ import { EmailInputDirective } from './colaboradores/shared/email-input.directiv
 import { LetrasInputDirective } from './colaboradores/shared/letras-input.directive';
 import { TextMaskModule } from 'angular2-text-mask';
 import { ProjetoService } from './projetos/shared/projeto.service';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { ProjetoService } from './projetos/shared/projeto.service';
     CustomMaterialModule,
     FormsModule,
     HttpClientModule,
-    TextMaskModule
+    TextMaskModule,
+    MomentModule
   ],
   providers: [ColaboradorService,
               ProjetoService
