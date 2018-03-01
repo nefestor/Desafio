@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColaboradorService } from '../shared/colaborador.service';
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-colaborador-form',
@@ -18,15 +20,15 @@ export class ColaboradorFormComponent implements OnInit {
 
   ngOnInit() {
   }
+  public list = [];
 
   onSubmit(form) {
-    console.log(form);
+    form.value.cadastro = moment();
     this.ColaboradorService.verificaEmail(form.value.email, (data) => {
       if (data.length == 0) {
         this.ColaboradorService.postColaborador(form);
       } else {
-        alert("email já existe, cadastre outro");
-        console.log("ja existe email");
+        alert("Há um colaborador com esse e-mail, utilize outro.");
       }
     })
   }

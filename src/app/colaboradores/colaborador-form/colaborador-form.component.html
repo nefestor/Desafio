@@ -1,43 +1,52 @@
-<form #colForm="ngForm" name="form" (ngSubmit)="onSubmit(colForm)"  fxLayout="column" fxLayoutAlign="space-evenly stretch">
-  <p>
-    colaboradores-form works!
-  </p>
-  <mat-form-field hintLabel="Min 5 caracteres">
-    <mat-label  for="name">Nome Completo</mat-label>
-    <input matInput #put required placeholder="Usuario Novo" ngModel name="name" LetrasInput="true" minlength="5"/>
-    <mat-hint align="end">{{put.value?.length || 0}}</mat-hint>
-  </mat-form-field>
+<div class="container">
+  <br>
+  <button mat-fab routerLink="/colaboradores" color="primary">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
+<div class="container">
+  <form #colForm="ngForm" name="form" (ngSubmit)="onSubmit(colForm)"  fxLayout="column" fxLayoutAlign="space-evenly">
+    <h4>
+      Formulário de Cadastro - Colaborador
+    </h4>
+    <mat-form-field hintLabel="Min 5 caracteres">
+      <mat-label  for="name">Nome Completo</mat-label>
+      <input matInput #put required placeholder="Usuario Novo" ngModel name="name" LetrasInput="true" minlength="5"/>
+      <mat-hint align="end">{{put.value?.length || 0}}</mat-hint>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="email">Email para Contato</mat-label>
-    <input type="email" matInput required placeholder="colaborador@email.com" ngModel email="true" name="email" EmailInput="true"/>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label for="email">Email para Contato</mat-label>
+      <input type="email" matInput required placeholder="colaborador@email.com" ngModel email="true" name="email" EmailInput="true"/>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="phone">Telefone Celular</mat-label>
-    <input type="tel" [textMask]="{mask: phoneMask}" matInput placeholder="(11) 1111-1111" ngModel name="phone"/>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label for="phone">Telefone Celular</mat-label>
+      <input type="tel" [textMask]="{mask: phoneMask}" matInput placeholder="(11) 1111-1111" ngModel name="phone"/>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="birth">Data de Nascimento</mat-label>
-    <input matInput [textMask]="{mask: dateMask}" placeholder="(DD/MM/YYYY)" ngModel name="birth"/>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label for="birth">Data de Nascimento</mat-label>
+      <input matInput [textMask]="{mask: dateMask}" placeholder="(DD/MM/YYYY)" ngModel name="birth"/>
+    </mat-form-field>
 
 
-  <mat-form-field>
-    <mat-label for="workload">Carga Horária</mat-label>
-    <input matInput [textMask]="{mask: hourMask}" placeholder="10:10" ngModel name="workload"/>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label for="workload">Carga Horária</mat-label>
+      <input matInput [textMask]="{mask: hourMask}" placeholder="10:10" ngModel name="workload"/>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="Escolaridade" ngModel name="scholarity">
-      <mat-option value="Fundamental">Fundamental</mat-option>
-      <mat-option value="Medio">Médio</mat-option>
-      <mat-option value="Superior">Superior</mat-option>
-      <mat-option value="Especializacao">Especialização</mat-option>
-      <mat-option value="Mestrado">Mestrado</mat-option>
-      <mat-option value="Doutado">Doutorado</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button type="submit" [disabled]="!colForm.valid" mat-raised-button color="primary">Enviar</button>
-</form>
+    <mat-form-field>
+      <mat-select placeholder="Escolaridade" ngModel name="scholarity">
+        <mat-option value="Fundamental">Fundamental</mat-option>
+        <mat-option value="Medio">Médio</mat-option>
+        <mat-option value="Superior">Superior</mat-option>
+        <mat-option value="Especializacao">Especialização</mat-option>
+        <mat-option value="Mestrado">Mestrado</mat-option>
+        <mat-option value="Doutorado">Doutorado</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <button type="submit" [disabled]="!colForm.valid" mat-raised-button color="primary">Enviar</button>
+  </form>
+</div>
