@@ -6,16 +6,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ColaboradorService {
   
-  
   constructor(private http: HttpClient) { }
 
   getColaborador(name, callback){
-    console.log(name);
     this.http.get(`http://localhost:3000/v1/users?name=${name}`)
     .subscribe(
       (data:any[]) => {
         callback(data);
-        console.log(data);
       }
     )
   } //Se nome estiver com o campo vazio, está retornando o primeiro usuário.
@@ -28,6 +25,7 @@ export class ColaboradorService {
         }
       )
   }
+  
   getColaboradores(callback) {
     this.http.get(`http://localhost:3000/v1/users`)
       .subscribe(
@@ -36,29 +34,29 @@ export class ColaboradorService {
         }
       )
   }
-
+  
   postColaborador(form) {
     if(form.status == "VALID") {
-      console.table(form.value);
       this.http
       .post(`http://localhost:3000/v1/users`, form.value)
       .subscribe(data => {
-      console.log(data)
       },
       err => {
-        console.log("Erro ocorrido.");
+        alert("Algum erro ocorreu. Tente novamente.");
       },
       () => {
-        console.log("teste");
+        alert("Usuário cadastrado com sucesso");
       }
       );
     } else {
       alert("Formulario Invalido. Preencha os campos corretamente");
     }
   }
+
   excluirColaborador(id): Observable<any> {
     return this.http.delete(`http://localhost:3000/v1/users/${id}`).map((res: Response) => {})
   }
+
   alterarColaborador(form): Observable<any> {
     return this.http.put(`http://localhost:3000/v1/users/${form.id}`, form).map((res: Response) => {})
   }
