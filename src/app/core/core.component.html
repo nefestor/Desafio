@@ -3,14 +3,14 @@
 </mat-toolbar>
 
 <mat-tab-group>
-  <mat-tab label="Últimos Colaboradores">
+  <mat-tab label="Colaboradores">
     <div class="container" fxLayout="row" fxLayoutAlign= "space-around stretch">
       <mat-list *ngFor="let colaborador of lista | slice:0:5">
         <mat-list-item>{{ colaborador.nome }}</mat-list-item>
       </mat-list>
     </div>
   </mat-tab>
-  <mat-tab label="Últimos Projetos">
+  <mat-tab label="Projetos">
     <div class="container" fxLayout="row" fxLayoutAlign="space-around stretch">
       <mat-list *ngFor="let projeto of listaProjeto | slice:0:5">
         <mat-list-item>{{ projeto.nome }}</mat-list-item>

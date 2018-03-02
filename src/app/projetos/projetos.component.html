@@ -2,24 +2,10 @@
   <mat-toolbar color="primary">
     <span>Projetos</span>
   </mat-toolbar>
-  <p>projetos works!</p>
-  <h2>Projetos</h2>
   <div>
-    <mat-form-field>
-      <mat-label for="procurar">Localizar Projeto</mat-label>
-      <input matInput #name type="text" placeholder="Nome Projeto">
-    </mat-form-field>
-    <button (click)="localizar(name.value)" mat-raised-button color="basic">Localizar</button>
-  </div>
-  <div>
-    <button mat-raised-button color="basic" routerLink="listar">Listar</button>
+    <br>
     <button mat-raised-button color="primary" routerLink="novo">Adicionar</button>
-    <button mat-raised-button color="accent" routerLink="alterar">Alterar</button>
-    <button mat-raised-button color="warn" routerLink="excluir">Remover</button>
+    <p></p> <!-- corrigir gambiarra -->
   </div>
-  <div>
-    <div *ngFor="let projeto of listaNome">
-      <p>{{projeto.nome}}</p>
-    </div>
-  </div>
+  <app-projetos-list></app-projetos-list>
 </div>
