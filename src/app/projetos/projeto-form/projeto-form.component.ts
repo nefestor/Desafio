@@ -1,13 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetoService } from '../shared/projeto.service';
-import { FormControl } from '@angular/forms';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
+
+import { FormControl } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-projeto-form',
   templateUrl: './projeto-form.component.html',
-  styleUrls: ['./projeto-form.component.css']
+  styleUrls: ['./projeto-form.component.css'],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+  ],
 })
 export class ProjetoFormComponent implements OnInit {
 
@@ -32,7 +41,9 @@ export class ProjetoFormComponent implements OnInit {
   }
 
   onSubmit(form) {
-    console.log(form);
+    console.log(this.membros);
+    form.value.time = this.membros;
+    form.value.cadastro = moment();
     this.ProjetoService.postProjeto(form);
   }
 
@@ -51,5 +62,4 @@ export class ProjetoFormComponent implements OnInit {
       this.membros.splice(index, 1);
     }
   }
-
 }
