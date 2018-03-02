@@ -1,8 +1,50 @@
-<div class="container">
-  <p>
-    projetos-list works!
-  </p>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+
+  <mat-card>
+    <mat-card-title>Lista de Projetos</mat-card-title>
+  </mat-card>
+    <mat-form-field>
+      <mat-label for="procurar">Localizar Projeto</mat-label>
+      <input matInput #nome (keyup)="projeto(nome.value)" type="text" placeholder="Nome Projeto" name="procurar">
+    </mat-form-field>
   <mat-nav-list>
-    <a mat-list-item value="projeto.nome" *ngFor="let projeto of lista"> {{ projeto.nome }} </a>
+    <mat-accordion fxLayout="column" fxLayoutAlign="space-between">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let projeto of lista">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Nome: {{ projeto.name }}
+          </mat-panel-title>
+          <mat-panel-description fxLayoutAlign="end center">
+            Cadastro feito {{ atual().to(projeto.cadastro) }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+          <mat-list>
+            <h2 mat-subheader>Líder</h2>
+            <mat-list-item>{{ projeto.boss }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <h2 mat-subheader>Data Início</h2>
+            <mat-list-item>{{ projeto.start }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <h2 mat-subheader>Data Final</h2>
+            <mat-list-item>{{ projeto.finish}}</mat-list-item>          
+            <mat-divider></mat-divider>
+            <h2 mat-subheader>Membros da Equipe</h2>
+            <mat-list-item *ngFor="let membro of projeto.time">{{ membro.name }} {{ membro.ch}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <h2 mat-subheader>Descrição</h2>
+            <mat-list-item>{{ projeto.description }}</mat-list-item>
+          </mat-list>
+          <mat-action-row fxLayout="row" fxLayoutAlign="space-evenly center">
+            <button mat-mini-fab routerLink="/projetos/alterar" matTooltip="Editar">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="excluir(projeto._id)" matTooltip="Excluir">
+              <mat-icon matTooltip="Excluir">clear</mat-icon>
+            </button>
+          </mat-action-row>
+        </ng-template>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-nav-list>
 </div>
