@@ -1,14 +1,11 @@
-<div class="container">
-  <p>
-    colaboradores-list works!
-  </p>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>Lista de Colaboradores</mat-card-title>
+  </mat-card>
   <mat-form-field >
     <mat-label for="procurar">Localizar Colaborador</mat-label>
     <input matInput #nome (keyup)="localiza(nome.value)" type="text" placeholder="Nome Colaborador" name="procurar">
   </mat-form-field>
-  <mat-card>
-    <mat-card-title>Lista de Colaboradores</mat-card-title>
-  </mat-card>
   <mat-nav-list>
     <mat-accordion fxLayout="column" fxLayoutAlign="space-between">
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let colaborador of lista">
@@ -16,21 +13,32 @@
             <mat-panel-title>
               Nome: {{ colaborador.name }}
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description fxLayoutAlign="end center">
                Cadastro feito {{ atual().to(colaborador.cadastro) }}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <ng-template matExpansionPanelContent>
-            <p>Email: {{ colaborador.email }}</p>
-            <p>Telefone: {{ colaborador.phone }}</p>
-            <p>Data de Nascimento: {{ colaborador.birth }}</p>
-            <p>Carga Horária: {{ colaborador.workload }}</p>
-            <p>Escolaridade: {{ colaborador.scholarity }}</p>
+            <mat-list>
+              <h2 mat-subheader>E-mail</h2>
+              <mat-list-item>{{ colaborador.email }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <h2 mat-subheader>Telefone</h2>
+              <mat-list-item>{{ colaborador.phone }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <h2 mat-subheader>Data de Nascimento</h2>
+              <mat-list-item>{{ colaborador.birth }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <h2 mat-subheader>Carga Horária</h2>
+              <mat-list-item>{{ colaborador.workload }}</mat-list-item>
+              <mat-divider></mat-divider>
+              <h2 mat-subheader>Escolaridade</h2>
+              <mat-list-item>{{ colaborador.scholarity }}</mat-list-item>
+            </mat-list>
             <mat-action-row fxLayout="row" fxLayoutAlign="space-evenly center">
-              <button mat-mini-fab routerLink="/colaboradores/alterar">
+              <button mat-mini-fab routerLink="/colaboradores/alterar" matTooltip="Editar">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-mini-fab color="warn" (click)="excluir(colaborador._id)">
+              <button mat-mini-fab color="warn" (click)="excluir(colaborador._id)" matTooltip="Excluir">
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-action-row>
