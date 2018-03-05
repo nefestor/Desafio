@@ -11,33 +11,33 @@
     </h4>
     <mat-form-field hintLabel="Min 5 caracteres">
       <mat-label  for="name">Nome Completo</mat-label>
-      <input matInput #put required placeholder="Usuario Novo" ngModel name="name" LetrasInput="true" minlength="5"/>
-      <mat-hint align="end">{{put.value?.length || 0}}</mat-hint>
+      <input matInput  required placeholder="Usuario Novo" [(ngModel)]="name" name="name" LetrasInput="true" minlength="5"/>
+      <mat-hint align="end">{{name.value?.length || 0}}</mat-hint>
     </mat-form-field>
-
+    
     <mat-form-field>
       <mat-label for="email">Email para Contato</mat-label>
-      <input type="email" matInput required placeholder="colaborador@email.com" ngModel email="true" name="email" EmailInput="true"/>
+      <input type="email"  matInput required placeholder="colaborador@email.com" [(ngModel)]="email"  email="true" name="email" EmailInput="true"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label for="phone">Telefone Celular</mat-label>
-      <input type="tel" [textMask]="{mask: phoneMask}" matInput placeholder="(11) 1111-1111" ngModel name="phone"/>
+      <input type="tel"  [textMask]="{mask: phoneMask}" matInput placeholder="(11) 1111-1111" [(ngModel)]="phone" name="phone"/>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label for="birth">Data de Nascimento</mat-label>
-      <input matInput [textMask]="{mask: dateMask}" placeholder="(DD/MM/YYYY)" ngModel name="birth"/>
+      <input matInput  [textMask]="{mask: dateMask}" placeholder="(DD/MM/YYYY)" [(ngModel)]="birth" name="birth"/>
     </mat-form-field>
 
 
     <mat-form-field>
       <mat-label for="workload">Carga Horária</mat-label>
-      <input matInput [textMask]="{mask: hourMask}" placeholder="10:10" ngModel name="workload"/>
+      <input matInput  [textMask]="{mask: hourMask}" placeholder="10:10" [(ngModel)]="workload" name="workload"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Escolaridade" ngModel name="scholarity">
+      <mat-select placeholder="Escolaridade" [(ngModel)]="scholarity" name="scholarity">
         <mat-option value="Fundamental">Fundamental</mat-option>
         <mat-option value="Medio">Médio</mat-option>
         <mat-option value="Superior">Superior</mat-option>
