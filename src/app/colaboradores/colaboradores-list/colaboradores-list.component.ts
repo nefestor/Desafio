@@ -37,6 +37,10 @@ export class ColaboradoresListComponent implements OnInit {
   localiza(nome: string) {
     console.log(nome);
     let copiaLista: any[] = new Array;
+    this.colaboradorService.getColaboradores((data => {
+      copiaLista = data;
+      this.lista = copiaLista.filter(colaborador => colaborador.name.toLowerCase().includes(nome.toLowerCase()));
+    }))
   }
 
   excluir(id) {
@@ -50,7 +54,8 @@ export class ColaboradoresListComponent implements OnInit {
     return moment();
   }
 
-  alterar(id, form) {
-
+  alterar(colaborador) {
+    this.colaboradorService.setColaborador(colaborador);
+    console.log(colaborador);
   }
 }

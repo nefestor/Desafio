@@ -35,7 +35,7 @@
               <mat-list-item>{{ colaborador.scholarity }}</mat-list-item>
             </mat-list>
             <mat-action-row fxLayout="row" fxLayoutAlign="space-evenly center">
-              <button mat-mini-fab routerLink="/colaboradores/alterar" matTooltip="Editar">
+              <button mat-mini-fab routerLink="/colaboradores/alterar" (click)="alterar(colaborador)" matTooltip="Editar">
                 <mat-icon>edit</mat-icon>
               </button>
               <button mat-mini-fab color="warn" (click)="excluir(colaborador._id)" matTooltip="Excluir">
