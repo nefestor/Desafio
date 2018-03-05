@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ColaboradorService {
   
+  colaborador: any;
+
   constructor(private http: HttpClient) { }
 
   getColaborador(name, callback){
@@ -57,7 +60,18 @@ export class ColaboradorService {
     return this.http.delete(`http://localhost:3000/v1/users/${id}`).map((res: Response) => {})
   }
 
-  alterarColaborador(form): Observable<any> {
-    return this.http.put(`http://localhost:3000/v1/users/${form.id}`, form).map((res: Response) => {})
+  alterarColaborador(id, form, cadastro): Observable<any> {
+    console.log(cadastro);
+    form.cadastro = cadastro;
+    console.log('teste');
+    return this.http.put(`http://localhost:3000/v1/users/${id}`, form).map((res: Response) => {})
+  }
+
+  getColab() {
+    return this.colaborador;
+  }
+  setColaborador(colaborador) {
+    this.colaborador = colaborador;
+    console.log(this.colaborador);
   }
 }
