@@ -15,7 +15,6 @@ export class ProjetoService {
       this.http
         .post(`http://localhost:3000/v1/projects`, form.value)
         .subscribe(data => {
-          console.log(data)
         },
           err => {
             console.log("Erro ocorrido.");

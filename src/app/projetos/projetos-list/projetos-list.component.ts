@@ -38,6 +38,14 @@ export class ProjetosListComponent implements OnInit {
     });
   }
 
+    localiza(nome: string) {
+    let copiaLista: any[] = new Array;
+    this.ProjetoService.getProjetos((data => {
+      copiaLista = data;
+      this.lista = copiaLista.filter(projeto => projeto.name.toLowerCase().includes(nome.toLowerCase()));
+    }))
+  }
+
   excluir(id) {
     this.subscriber = this.ProjetoService.excluirProjeto(id)
       .subscribe(() => {
