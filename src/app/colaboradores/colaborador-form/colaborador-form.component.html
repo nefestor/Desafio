@@ -9,10 +9,9 @@
     <h4>
       Formulário de Cadastro - Colaborador
     </h4>
-    <mat-form-field hintLabel="Min 5 caracteres">
-      <mat-label  for="name">Nome Completo</mat-label>
-      <input matInput  required placeholder="Usuario Novo" [(ngModel)]="name" name="name" LetrasInput="true" minlength="5"/>
-      <mat-hint align="end">{{name.value?.length || 0}}</mat-hint>
+    <mat-form-field>
+      <mat-label  for="nome">Nome Completo</mat-label>
+      <input matInput  required placeholder="Usuario Novo" [(ngModel)]="name" name="nome" LetrasInput="true"/>
     </mat-form-field>
     
     <mat-form-field>

@@ -15,7 +15,6 @@ export class CoreComponent implements OnInit {
 
   constructor(private colaboradorService: ColaboradorService, private projetoService: ProjetoService, private Dialog: MatDialog) { }
 
-
   lista = [];
   listaProjeto = [];
   DialogName: MatDialogRef<DialogComponent>;
@@ -23,7 +22,8 @@ export class CoreComponent implements OnInit {
   ngOnInit() {
   }
 
-  listagem() {
+  // tslint:disable:member-ordering
+  list =
     this.colaboradorService.getColaboradores((data) => {
       data.forEach(element => {
         const tst = {
@@ -32,9 +32,8 @@ export class CoreComponent implements OnInit {
         (this.lista).push(tst);
       });
     });
-  }
 
-  listaProjetos() {
+  listed =
     this.projetoService.getProjetos((data) => {
       data.forEach(element => {
         const tst = {
@@ -43,10 +42,8 @@ export class CoreComponent implements OnInit {
         (this.listaProjeto).push(tst);
       });
     });
-  }
 
   openDialog() {
     this.DialogName = this.Dialog.open(DialogComponent);
   }
-
 }
