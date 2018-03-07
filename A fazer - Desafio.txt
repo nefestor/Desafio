@@ -1,0 +1,41 @@
+Tornar nome obrigatório - ok
+Validar e-mail - ok
+Tornar e-mail obrigatório - ok
+Inserir somente números no telefone - ok
+somente números em data de nascimento - ok
+Somente números na carga horária - ok
+Inserir somente letras no nome - ok
+mascara para carga horária - ok
+Mascara para data de nascimento - ok
+Tornar e-mail único - ok
+Tornar nome obrigatório - ok
+Descrição - ok
+Inserir somente letras no nome -  ok
+Somente números em data de início - ok
+Somente número para data de conclusão - ok
+Mascara para data de início - ok
+Mascara para data de conclusão - ok
+tornar colaborador responsável obrigatório - ok
+colaborador será um get de todos os colaboradores e usuário escolherá um deles - ok
+botão enviar somente ativo ao inserir dados corretamente - ok
+Criar botão/função para adicionar usuário - ok
+Criar botão/função para remover usuário - ok
+Armazenar data/hora de cadastro dos colaboradores/projetos e na listagem exibir desde quando está cadastrado - 01/03 -  Dificuldade: 5 - ok
+Criar página home com dados sobre o desafio, com últimos colaboradores e últimos projetos adicionados. - 01/03 Dificuldade: 2 - ok
+Criar listagem de usuário na rota colaboradores - Dificuldade: 2 - ok
+Criar listagem de projetos na rota projetos - Dificuldade: 4 - ok
+Criar botão/função para remover projeto. - 28/02 Dificuldade: 2 - ok
+Autocomplete usuarios - ok
+Autocomplete projetos - ok
+Criar função para editar colaborador - ok
+
+Atrasados:
+
+1- Equipe: Selecionar um nome, após isso o nome descerá e aparecerá um input ao lado do nome para inserir a carga horário (se for maior não vai deixar dar OK e avisa o usuario). O Select limpa para caso o usuário queira escolher outro, se escolher faz o mesmo passo de antes. - 26/02  Dificuldade: 5 [falta input de horas+validação]
+2- Criar botão/função para adicionar projeto[terminar parte equipe] - 28/02 Dificuldade: 4
+3- Criar botão/função para alterar dados do projeto[terminar parte equipe] - 28/02 Dificuldade: 3
+4- Se colaborador é responsável por um projeto não poderá ser responsável por outro enquanto não terminar o projeto em que é responsável[moment-range] - 02/03  Dificuldade:5
+5- Responsividade
+
+
+Apresentação: 05/03

@@ -15,11 +15,11 @@ import { Subscription } from 'rxjs/Subscription';
 export class ColaboradorFormComponent implements OnInit {
 
   subscribe: Subscription;
-  
-  public phoneMask = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
-  public hourMask = [/[0-9]/, /\d/,':',/\d/, /\d/]
 
+  public phoneMask = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  public hourMask = [/[0-9]/, /\d/, ':', /\d/, /\d/];
+  public list = [];
   name: any;
   email: any;
   phone: any;
@@ -29,12 +29,12 @@ export class ColaboradorFormComponent implements OnInit {
   id: any;
   cadastro: any;
 
-  constructor(private ColaboradorService: ColaboradorService, private ActivatedRoute: ActivatedRoute, private Router: Router) { }
+  constructor(private colaboradorService: ColaboradorService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.subscribe = this.ActivatedRoute.params.subscribe((params: any) => {
-      if(this.Router.url.includes('alterar')) {
-        let colab = this.ColaboradorService.getColab();
+    this.subscribe = this.activatedRoute.params.subscribe((params: any) => {
+      if (this.router.url.includes('alterar')) {
+        const colab = this.colaboradorService.getColab();
         this.id = colab._id;
         this.name = colab.name;
         this.email = colab.email;
@@ -44,27 +44,27 @@ export class ColaboradorFormComponent implements OnInit {
         this.cadastro = colab.cadastro;
         this.scholarity = colab.scholarity;
       }
-    })
+    });
   }
-  public list = [];
+
 
   onSubmit(form) {
-    if(this.Router.url.includes('novo')) {
+    if (this.router.url.includes('novo')) {
       form.value.cadastro = moment();
-      this.ColaboradorService.verificaEmail(form.value.email, (data) => {
-        if (data.length == 0) {
-          this.ColaboradorService.postColaborador(form);
+      this.colaboradorService.verificaEmail(form.value.email, (data) => {
+        if (data.length === 0) {
+          this.colaboradorService.postColaborador(form);
         } else {
           alert('Há um colaborador com esse e-mail, utilize outro.');
         }
-      })
+      });
     }
-    if(this.Router.url.includes('alterar')) {
+    if (this.router.url.includes('alterar')) {
       console.log(this.id);
-      this.subscribe = this.ColaboradorService.alterarColaborador(this.id, form.value, this.cadastro)
+      this.subscribe = this.colaboradorService.alterarColaborador(this.id, form.value, this.cadastro)
       .subscribe((data) => {
         console.log(data);
-      })
+      });
       console.log(form.value);
       alert('Usuário alterado com sucesso');
     }

@@ -1,6 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[LetrasInput]'
 })
 export class LetrasInputDirective {
@@ -10,7 +11,7 @@ export class LetrasInputDirective {
   @Input() LettersInput: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    let e = <KeyboardEvent>event;
+    const e = <KeyboardEvent>event;
     if (this.LettersInput) {
       if (
         // Previne: Ctrl+A
@@ -20,17 +21,17 @@ export class LetrasInputDirective {
         // Previne: Ctrl+V
         ((e.keyCode === 86 || e.keyCode === 118) && (e.ctrlKey || e.metaKey)) ||
         // Previne: Ctrl+X
-        ((e.keyCode === 88 || e.keyCode === 120) && (e.ctrlKey || e.metaKey)))
+        ((e.keyCode === 88 || e.keyCode === 120) && (e.ctrlKey || e.metaKey))) {
         e.preventDefault();
+      }
     }
 
-    //se for letra retorna maiúscula retorna, se for letra minúscula retorna
+    // se for letra retorna maiúscula retorna, se for letra minúscula retorna
     if ((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode >= 97 && e.keyCode <= 122)) {
       return;
-    } //se for tab ou backspace ou seta baixo ou seta cima ou enter retorna
-    else if (e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 32  || e.keyCode === 40 ||e.keyCode === 38 || e.keyCode === 13) {
+    } else if (e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 32  || e.keyCode === 40 || e.keyCode === 38 || e.keyCode === 13) {
       return;
-    } else { //se não for nada acima previne o retorno
+    } else { // se não for nada acima previne o retorno
       e.preventDefault();
     }
   }

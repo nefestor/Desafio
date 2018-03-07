@@ -10,33 +10,33 @@ export class ProjetoService {
   constructor(private http: HttpClient, private ColadoradorService: ColaboradorService) { }
 
   postProjeto(form) {
-    if (form.status == "VALID") {
+    if (form.status === 'VALID') {
       console.table(form.value);
       this.http
         .post(`http://localhost:3000/v1/projects`, form.value)
         .subscribe(data => {
         },
           err => {
-            console.log("Erro ocorrido.");
+            console.log('Erro ocorrido.');
           }
         );
     } else {
-      alert("Formulario Invalido. Preencha os campos corretamente");
+      alert('Formulario Invalido. Preencha os campos corretamente');
     }
   }
-  
+
   getProjeto(nome) {}
 
   listaColaboradores(): any[] {
-    let lista = [];
+    const lista = [];
     this.ColadoradorService.getColaboradores((data) => {
       data.forEach(element => {
-        let tst = {
+        const tst = {
           nome: element.name,
           email: element.email
         };
         (lista).push(tst);
-      })
+      });
     });
     return lista;
   }
@@ -47,11 +47,11 @@ export class ProjetoService {
         (data: any[]) => {
           callback(data);
         }
-      )
+      );
   }
 
   excluirProjeto(id): Observable<any> {
-    return this.http.delete(`http://localhost:3000/v1/projects/${id}`).map((res: Response) => { })
+    return this.http.delete(`http://localhost:3000/v1/projects/${id}`).map((res: Response) => { });
   }
 
 }

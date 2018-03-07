@@ -7,14 +7,14 @@ import { ProjetoService } from './shared/projeto.service';
 })
 export class ProjetosComponent implements OnInit {
 
-  constructor(private ProjetoService: ProjetoService) { }
+  constructor(private projetoService: ProjetoService) { }
 
   public listaNome: any[] = [];
 
   ngOnInit() {
   }
-  
+
   localizar(name) {
-    this.ProjetoService.getProjeto(name);
+    this.projetoService.getProjeto(name);
   }
 }

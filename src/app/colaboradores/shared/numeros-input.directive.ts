@@ -1,6 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[NumerosInput]'
 })
 export class NumerosInputDirective {
@@ -10,7 +11,7 @@ export class NumerosInputDirective {
   @Input() NumerosInput: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    let e = <KeyboardEvent>event;
+    const e = <KeyboardEvent>event;
     if (this.NumerosInput) {
       if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
         // Allow: Ctrl+A
@@ -26,11 +27,10 @@ export class NumerosInputDirective {
         // let it happen, don't do anything
         return;
       }
-      //se for ':' retorna
-      } if (e.keyCode === 59){
+      // se for ':' retorna
+      } if (e.keyCode === 59) {
           return;
       }
-      // Ensure that it is a number and stop the keypress
       if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
         e.preventDefault();
 

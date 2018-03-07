@@ -21,15 +21,16 @@ import * as moment from 'moment';
 export class ProjetoFormComponent implements OnInit {
 
   public phoneMask = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
-  public hourMask = [/[0-9]/, /\d/, ':', /\d/, /\d/]
-  
-  constructor(private ProjetoService: ProjetoService) { }
+  public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  public hourMask = [/[0-9]/, /\d/, ':', /\d/, /\d/];
 
-  lista: any[] = this.ProjetoService.listaColaboradores();
+  constructor(private projetoService: ProjetoService) { }
+
+  lista: any[] = this.projetoService.listaColaboradores();
   membros: any [] = new Array;
-  panelOpenState: boolean = true;
+  panelOpenState: boolean;
 
+  // tslint:disable:no-inferrable-types
   visible: boolean = true;
   selectable: boolean = true;
   removable: boolean = true;
@@ -44,20 +45,20 @@ export class ProjetoFormComponent implements OnInit {
     console.log(this.membros);
     form.value.time = this.membros;
     form.value.cadastro = moment();
-    this.ProjetoService.postProjeto(form);
+    this.projetoService.postProjeto(form);
   }
 
   adicionaMembro(value: string) {
-    let membro =  {
+    const membro =  {
       name: ''
-    }
+    };
     membro.name = value;
     this.membros.push(membro);
     console.log(this.membros);
   }
 
   remove(membro: any): void {
-    let index = this.membros.indexOf(membro);
+    const index = this.membros.indexOf(membro);
     if (index >= 0) {
       this.membros.splice(index, 1);
     }

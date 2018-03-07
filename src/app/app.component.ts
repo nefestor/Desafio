@@ -13,5 +13,5 @@ export class AppComponent {
   title = 'app';
   now = moment().format('LLLL');
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private httpClient: HttpClient) {}
 }

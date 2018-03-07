@@ -12,35 +12,41 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class CoreComponent implements OnInit {
 
-  
-  constructor(private ColaboradorService: ColaboradorService, private ProjetoService: ProjetoService, private Dialog: MatDialog) { }
 
-  ngOnInit() {
-  }
+  constructor(private colaboradorService: ColaboradorService, private projetoService: ProjetoService, private Dialog: MatDialog) { }
+
 
   lista = [];
   listaProjeto = [];
   DialogName: MatDialogRef<DialogComponent>;
 
-  listagem = this.ColaboradorService.getColaboradores((data) => {
-    data.forEach(element => {
-      let tst = {
-        nome: element.name,
-      };
-      (this.lista).push(tst);
-    })
-  });
-  
-  listagemProjeto = this.ProjetoService.getProjetos((data) => {
-    data.forEach(element => {
-      let tst = {
-        nome: element.name,
-      };
-      (this.listaProjeto).push(tst);
-    })
-  });
+  ngOnInit() {
+  }
+
+  listagem() {
+    this.colaboradorService.getColaboradores((data) => {
+      data.forEach(element => {
+        const tst = {
+          nome: element.name,
+        };
+        (this.lista).push(tst);
+      });
+    });
+  }
+
+  listaProjetos() {
+    this.projetoService.getProjetos((data) => {
+      data.forEach(element => {
+        const tst = {
+          nome: element.name,
+        };
+        (this.listaProjeto).push(tst);
+      });
+    });
+  }
 
   openDialog() {
     this.DialogName = this.Dialog.open(DialogComponent);
   }
+
 }

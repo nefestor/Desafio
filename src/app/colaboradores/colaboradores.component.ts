@@ -9,16 +9,16 @@ import * as moment from 'moment';
 })
 export class ColaboradoresComponent implements OnInit {
 
-  constructor(private ColaboradorService: ColaboradorService) { }
+  constructor(private colaboradorService: ColaboradorService) { }
 
   public listaNome: any[] = [];
 
   ngOnInit() {
   }
-  localizar(name) { //corrigir
-    this.ColaboradorService.getColaborador(name, (data) => {
+  localizar(name) {
+    this.colaboradorService.getColaborador(name, (data) => {
        data.forEach(colaborador => {
-         let tst = `<li>${colaborador.name}</li>`;
+        const tst = `<li>${colaborador.name}</li>`;
          (this.listaNome).push(tst);
        });
        console.log(this.listaNome);
