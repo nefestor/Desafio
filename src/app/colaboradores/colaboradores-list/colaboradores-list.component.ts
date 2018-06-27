@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ColaboradorService } from '../shared/colaborador.service';
-import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
 
 @Component({

@@ -26,6 +26,7 @@ import { EmailInputDirective } from './colaboradores/shared/email-input.directiv
 import { LetrasInputDirective } from './colaboradores/shared/letras-input.directive';
 import { TextMaskModule } from 'angular2-text-mask';
 import { ProjetoService } from './projetos/shared/projeto.service';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ProjetoService } from './projetos/shared/projeto.service';
     TextMaskModule
   ],
   providers: [ColaboradorService,
-              ProjetoService
+              ProjetoService,
+              {provide: APP_BASE_HREF, useValue : '/' }
   ],
   bootstrap: [AppComponent]
 })

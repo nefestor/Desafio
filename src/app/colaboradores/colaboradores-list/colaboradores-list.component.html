@@ -11,7 +11,7 @@
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let colaborador of lista">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Nome: {{ colaborador.name }}
+              Nome: {{ colaborador.nome }}
             </mat-panel-title>
             <mat-panel-description fxLayoutAlign="end center">
                Cadastro feito {{ atual().to(colaborador.cadastro) }}

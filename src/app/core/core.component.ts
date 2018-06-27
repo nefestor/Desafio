@@ -27,7 +27,7 @@ export class CoreComponent implements OnInit {
     this.colaboradorService.getColaboradores((data) => {
       data.forEach(element => {
         const tst = {
-          nome: element.name,
+          nome: element.nome,
         };
         (this.lista).push(tst);
       });
