@@ -8,8 +8,8 @@
   </mat-form-field>
   <mat-nav-list>
     <mat-accordion fxLayout="column" fxLayoutAlign="space-between">
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let colaborador of lista">
-          <mat-expansion-panel-header>
+      <mat-expansion-panel (opened)="panelOpenState = true" name="listinha" (closed)="panelOpenState = false" *ngFor="let colaborador of lista">
+          <mat-expansion-panel-header class="painel">
             <mat-panel-title>
               Nome: {{ colaborador.nome }}
             </mat-panel-title>
@@ -35,7 +35,7 @@
               <mat-list-item>{{ colaborador.scholarity }}</mat-list-item>
             </mat-list>
             <mat-action-row fxLayout="row" fxLayoutAlign="space-evenly center">
-              <button mat-mini-fab routerLink="/colaboradores/alterar" (click)="alterar(colaborador)" matTooltip="Editar">
+              <button mat-mini-fab routerLink="/colaboradores/alterar" class="botaoAlterar" (click)="alterar(colaborador)" matTooltip="Editar">
                 <mat-icon>edit</mat-icon>
               </button>
               <button mat-mini-fab color="warn" (click)="excluir(colaborador._id)" matTooltip="Excluir">

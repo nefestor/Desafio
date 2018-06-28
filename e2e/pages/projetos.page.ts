@@ -6,6 +6,6 @@ export class ProjectPage {
     }
 
     getFirstProject() {
-        return browser.element(by.className('mat-expansion-panel-header-title')).getText();
+        return browser.element(by.tagName('span')).getText();
     }
 }

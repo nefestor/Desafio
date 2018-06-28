@@ -2,19 +2,19 @@ import { element, browser, by } from 'protractor';
 
 export class NovoColabPage {
 
-    setNome() {
+    getNome() {
         return browser.element(by.name('nome'));
     }
-    setEmail() {
+    getEmail() {
         return browser.element(by.name('email'));
     }
-    setPhone() {
+    getPhone() {
         return browser.element(by.name('phone'));
     }
-    setBirth() {
+    getBirth() {
         return browser.element(by.name('birth'));
     }
-    setWorkload() {
+    getWorkload() {
         return browser.element(by.name('workload'));
     }
     getPage() {
