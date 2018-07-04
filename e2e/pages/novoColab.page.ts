@@ -1,4 +1,5 @@
 import { element, browser, by } from 'protractor';
+import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 
 export class NovoColabPage {
 
@@ -22,5 +23,14 @@ export class NovoColabPage {
     }
     getTitle() {
         return browser.element.all(by.tagName('span')).first().getText();
+    }
+    getButton() {
+        return element.all(by.tagName('button')).last();
+    }
+    getAlert() {
+        return browser.switchTo().alert();
+    }
+    getBackButton() {
+        return element.all(by.tagName('button')).first();
     }
 }

@@ -46,6 +46,7 @@ export class ProjetoFormComponent implements OnInit {
     form.value.time = this.membros;
     form.value.cadastro = moment();
     this.projetoService.postProjeto(form);
+    alert('Projeto cadastrado com sucesso');
   }
 
   adicionaMembro(value: string) {

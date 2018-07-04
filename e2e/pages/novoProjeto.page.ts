@@ -20,4 +20,10 @@ export class NovoProjetoPage {
     getTitle() {
         return browser.element.all(by.tagName('span')).first().getText();
     }
+    getButton() {
+        return element(by.xpath('/html/body/app-root/div[2]/app-projeto-form/form/button'));
+    }
+    getAlert() {
+        return browser.switchTo().alert();
+    }
 }

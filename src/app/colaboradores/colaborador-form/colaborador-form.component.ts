@@ -54,18 +54,14 @@ export class ColaboradorFormComponent implements OnInit {
       this.colaboradorService.verificaEmail(form.value.email, (data) => {
         if (data.length === 0) {
           this.colaboradorService.postColaborador(form);
+          alert('Usuário Cadastrado com Sucesso');
         } else {
           alert('Há um colaborador com esse e-mail, utilize outro.');
         }
       });
     }
     if (this.router.url.includes('alterar')) {
-      console.log(this.id);
-      this.subscribe = this.colaboradorService.alterarColaborador(this.id, form.value, this.cadastro)
-      .subscribe((data) => {
-        console.log(data);
-      });
-      console.log(form.value);
+      this.colaboradorService.alterarColaborador(this.id, form.value, this.cadastro);
       alert('Usuário alterado com sucesso');
     }
   }
