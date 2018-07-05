@@ -1,50 +1,36 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { AppModule } from '../../app.module';
-import { ColaboradorService } from './colaborador.service';
+import axios from 'axios';
 
+const API = 'http://localhost:3000/v1/users';
 
-describe('Colaborador Component', () => {
-    let service: ColaboradorService;
-    let fixture: ComponentFixture<ColaboradorService>;
+describe('Teste de Integração', () => {
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                AppModule,
-            ],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA]
-        })
-            .compileComponents();
-    }));
+    it(
+        'Verifica retorno do GET - Nome do Usuário',
+        async (
+        ) => {
+            const req = await axios.get(API);
+            const underTest = req.data[0];
+            expect(underTest.nome).toBe('teste 1');
+        }
+    );
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ColaboradorService);
-        service = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    describe('Instância ColaboradorService', () => {
-
-        it('Verifica se ColaboradorService está sendo instânciado da forma correta', () => {
-            expect(service).toBeTruthy();
-        });
-
-        it('Teste de Integração 1', () => {
-            // tslint:disable-next-line:prefer-const
-            let teste = {
-                'results': [
-                    {
-                        'nome': 'Tiago',
-                        'email': 'teste@teste.it',
-                        'phone': '43996685744',
-                        'birth': '05/01/1996',
-                        'workload': '06:00',
-                        'scholarity': null,
-                        'cadastro': null,
-                    }]
-            };
-            service.postColaborador(teste);
-        });
-    });
+    it(
+        'should post user',
+        async (
+        ) => {
+            axios.post(API, {
+                nome: 'teste 1',
+                email: 'testeIntegracao2@email.com',
+                phone: '(43) 99668-5744',
+                birth: '05/01/1996',
+                workload: '06:00'
+            })
+                .then(function (response) {
+                    expect(response.statusText).toBe('OK');
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    );
 });

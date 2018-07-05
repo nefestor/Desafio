@@ -1,3 +1,4 @@
+/*
 import { CorePage } from './pages/core.page';
 
 describe('', () => {
@@ -23,3 +24,4 @@ describe('', () => {
         });
     });
 });
+*/

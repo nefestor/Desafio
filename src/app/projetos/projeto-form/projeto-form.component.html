@@ -44,7 +44,7 @@
   <h4>Defina as cargas horárias:</h4>
   <mat-list>
     <mat-list-item *ngFor="let membro of membros">
-      <input matInput type="text" placeholder="{{ membro.nome }}" name="ch">
+      <input matInput type="text" placeholder="{{ membro.name }}" name="ch">
       <button mat-mini-fab (click)="remove(membro)" color="primary"><mat-icon >clear</mat-icon></button>
     </mat-list-item>
   </mat-list>

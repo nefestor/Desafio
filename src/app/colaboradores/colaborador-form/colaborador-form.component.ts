@@ -32,11 +32,12 @@ export class ColaboradorFormComponent implements OnInit {
   constructor(private colaboradorService: ColaboradorService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
     this.subscribe = this.activatedRoute.params.subscribe((params: any) => {
       if (this.router.url.includes('alterar')) {
         const colab = this.colaboradorService.getColab();
         this.id = colab._id;
-        this.name = colab.name;
+        this.name = colab.nome;
         this.email = colab.email;
         this.phone = colab.phone;
         this.birth = colab.birth;

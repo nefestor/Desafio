@@ -33,6 +33,7 @@ describe('Desafio E2E Test Suite', () => {
             alertText = popupAlert.getText();
             expect(alertText).toMatch('Projeto cadastrado com sucesso');
             novoProjetoPage.getAlert().accept();
+
             projectPage.getPage();
             corePage.getProjetoButton().click();
         });
@@ -58,8 +59,12 @@ describe('Desafio E2E Test Suite', () => {
             novoColabPage.getBirth().sendKeys('05011996');
             novoColabPage.getWorkload().sendKeys('0600');
             novoColabPage.getButton().click();
-            expect(novoColabPage.getAlert().getText()).toMatch('Usuário Cadastrado com Sucesso');
+
+            popupAlert = browser.switchTo().alert();
+            alertText = popupAlert.getText();
+            expect(alertText).toMatch('Usuário Cadastrado com Sucesso');
             novoColabPage.getAlert().accept();
+
             colabPage.getPage();
             novoColabPage.getBackButton().click();
         });
@@ -72,7 +77,11 @@ describe('Desafio E2E Test Suite', () => {
             colabPage.getFirstColabEdit().click();
             novoColabPage.getNome().sendKeys(faker.name.findName());
             novoColabPage.getButton().click();
-            expect(novoProjetoPage.getAlert().getText()).toMatch('Usuário alterado com sucesso');
+
+            popupAlert = browser.switchTo().alert();
+            alertText = popupAlert.getText();
+            expect(alertText).toMatch('Usuário alterado com sucesso');
+
             novoColabPage.getAlert().accept();
             colabPage.getPage();
             novoColabPage.getBackButton().click();

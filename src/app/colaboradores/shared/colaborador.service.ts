@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 import 'rxjs';
 
 @Injectable()
@@ -31,6 +29,7 @@ export class ColaboradorService {
         }
       );
   }
+
   getColaboradores(callback) {
     this.http.get(`http://localhost:3000/v1/users`)
       .subscribe(
@@ -47,7 +46,6 @@ export class ColaboradorService {
         .subscribe(data => {
         },
           err => {
-            alert('Algum erro ocorreu. Tente novamente.');
           },
           () => {
           }
@@ -72,6 +70,5 @@ export class ColaboradorService {
 
   setColaborador(colaborador) {
     this.colaborador = colaborador;
-    console.log(this.colaborador);
   }
 }

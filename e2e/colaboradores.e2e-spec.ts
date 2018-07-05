@@ -1,3 +1,4 @@
+/*
 import { NovoColabPage } from './pages/novoColab.page';
 import { browser, protractor, element, by, WebElement } from 'protractor';
 
@@ -34,3 +35,4 @@ describe('Desafio E2E Test Suite', () => {
         });
     });
 });
+*/

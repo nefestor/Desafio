@@ -25,12 +25,12 @@ export class NovoColabPage {
         return browser.element.all(by.tagName('span')).first().getText();
     }
     getButton() {
-        return element.all(by.tagName('button')).last();
+        return browser.element.all(by.tagName('button')).last();
     }
     getAlert() {
         return browser.switchTo().alert();
     }
     getBackButton() {
-        return element.all(by.tagName('button')).first();
+        return browser.element.all(by.tagName('button')).first();
     }
 }
